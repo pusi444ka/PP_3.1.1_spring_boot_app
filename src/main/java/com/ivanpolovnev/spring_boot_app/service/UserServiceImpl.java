@@ -26,7 +26,7 @@ public class UserServiceImpl implements UserService{
 
     @Transactional
     @Override
-    public void save(User user) {
+    public void saveUser(User user) {
         userRepository.save(user);
     }
 
@@ -38,13 +38,13 @@ public class UserServiceImpl implements UserService{
 
     @Transactional
     @Override
-    public void update(User user) {
+    public void updateUser(User user) {
         userRepository.save(user);
     }
 
     @Transactional
     @Override
-    public void delete(Long id) {
+    public void deleteUser(Long id) {
         userRepository.deleteById(id);
     }
 }
