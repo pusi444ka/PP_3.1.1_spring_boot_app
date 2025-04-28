@@ -9,7 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 @Service
-public class UserServiceImpl implements UserService{
+public class UserServiceImpl implements UserService {
 
     private final UserRepository userRepository;
 
@@ -26,13 +26,13 @@ public class UserServiceImpl implements UserService{
 
     @Transactional
     @Override
-    public void saveUser(User user) {
+    public void createUser(User user) {
         userRepository.save(user);
     }
 
     @Transactional(readOnly = true)
     @Override
-    public User getUserById(Long id) {
+    public User findUserById(Long id) {
         return userRepository.findById(id).orElse(null);
     }
 
@@ -44,7 +44,7 @@ public class UserServiceImpl implements UserService{
 
     @Transactional
     @Override
-    public void deleteUser(Long id) {
+    public void deleteUserById(Long id) {
         userRepository.deleteById(id);
     }
 }

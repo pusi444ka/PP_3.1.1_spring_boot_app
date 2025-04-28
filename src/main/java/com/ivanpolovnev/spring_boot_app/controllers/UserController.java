@@ -26,7 +26,7 @@ public class UserController {
 
     @GetMapping("/edit/{id}")
     public String getEditView(@PathVariable("id") Long id, Model model) {
-        User user = userService.getUserById(id);
+        User user = userService.findUserById(id);
         model.addAttribute("user", user);
         return "edit";
     }
@@ -39,7 +39,7 @@ public class UserController {
 
     @PostMapping("/delete/{id}")
     public String deleteUser(@PathVariable("id") Long id) {
-        userService.deleteUser(id);
+        userService.deleteUserById(id);
         return "redirect:/users/list";
     }
 
@@ -49,7 +49,7 @@ public class UserController {
 
     @PostMapping
     public String newUserPost(@ModelAttribute("user") User user) {
-        userService.saveUser(user);
+        userService.createUser(user);
         return "redirect:/users/list";
     }
 }
