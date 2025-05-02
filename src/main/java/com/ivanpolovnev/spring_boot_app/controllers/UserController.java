@@ -20,7 +20,7 @@ public class UserController {
 
     @GetMapping("/list")
     public String listUsers(Model model) {
-        model.addAttribute("users", userService.getAllUsers());
+        model.addAttribute("users", userService.findAllUsers());
         return "listUsers";
     }
 
@@ -39,7 +39,7 @@ public class UserController {
 
     @PostMapping("/delete/{id}")
     public String deleteUser(@PathVariable("id") Long id) {
-        userService.deleteUserById(id);
+        userService.removeUserById(id);
         return "redirect:/users/list";
     }
 
